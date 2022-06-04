@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { NavLink, useParams } from 'react-router-dom'
 import { followUser, getUser, unfollowUser, GetPostByUser } from '../action/main'
 import Posts from './Posts'
-function Useraccount({updateProfile}) {
+function Useraccount({updateProfile,update}) {
     const { id } = useParams()
     const dispatch = useDispatch()
     const [show, setShow] = useState(false);
@@ -19,7 +19,7 @@ function Useraccount({updateProfile}) {
         dispatch(getUser(id))
         dispatch(GetPostByUser(id))
         
-    }, [id,dispatch,updateProfile])
+    }, [id,dispatch,updateProfile,update])
 
     const myposts = useSelector(state => state.getposts.peruser)
    

@@ -96,7 +96,7 @@ console.log('update',update)
       </>} />
       <Route path='/myaccount' element={<>
         <Navbar />
-        <Myaccount update={update} />
+        <Myaccount update={update} updateProfile={updateProfile}  />
       </>} />
       <Route path='/user/:id' element={
         <>
