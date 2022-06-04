@@ -69,7 +69,7 @@ function Useraccount({updateProfile}) {
                                     </div>
                                 </div>
                                 <div>
-                                    {
+                                    {userdarta._id===user?._id?null:
                                         userdarta?.followers?.find(p => p._id === user._id) ?
                                             <button onClick={() => dispatch(unfollowUser({ followId: userdarta?._id }))} className='follow'>Unfollow</button> :
                                             <button onClick={() => dispatch(followUser({ followId: userdarta?._id }))} className='follow'>Follow</button>

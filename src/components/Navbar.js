@@ -170,7 +170,7 @@ function Navbar() {
                                 <li className="homee active navitem"><NavLink to="/">Home</NavLink></li>
                                 <li className="services navitem"><NavLink to="/allposts">ALL-POSTS</NavLink></li>
                                 <li className="services navitem"><NavLink to="/Myaccount">My-Account</NavLink></li>
-                                <li className="skill navitem"><a onClick={() => dispatch(Logout())}>Logout</a></li>
+                                <li className="skill navitem"><a style={{color:'red'}} onClick={() => dispatch(Logout())}>Logout</a></li>
 
 
                             </ul>

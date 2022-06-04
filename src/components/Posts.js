@@ -6,7 +6,7 @@ import { IoMdSend } from "react-icons/io"
 import { Comment, like,unlike } from '../action/main'
 import { useEffect } from 'react'
 import { AiFillLike,AiOutlineLike } from 'react-icons/ai'
-import { MdOutlineModeComment, MdModeComment } from 'react-icons/md'
+import { MdOutlineModeComment, MdModeComment,MdCalendarToday } from 'react-icons/md'
 import { NavLink } from 'react-router-dom'
 function Posts({ val, res }) {
   const dispatch = useDispatch()
@@ -19,6 +19,7 @@ function Posts({ val, res }) {
 
   }, [res])
   const user = useSelector(state => state.user.user)
+  console.log('vv',val)
   return (
     <Col sm={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }} xl={{ span: 8, offset: 2 }} className="my-3">
       <div className='post_card'>
@@ -33,14 +34,14 @@ function Posts({ val, res }) {
           <NavLink style={{color:'black',textDecoration:'none'}} to={`/user/${val?.postedBy?.email}`} >
           <h4 className='m-0'>{val?.postedBy?.name}</h4>
           </NavLink>
-          <p className='m-0'>{val?.date}</p>
+          <p className='m-0'><MdCalendarToday /> {val?.date}</p>
         </div>
         <div className='post_card_text'>
           <p>{val?.body}</p>
         </div>
         <div className='likebtn'>
           <span>{
-            val?.likes?.includes(user?._id)?<AiFillLike onClick={()=>dispatch(unlike({postId:val?._id}))} />:
+            val?.likes?.includes(user?._id)?<AiFillLike color='#009DF2' onClick={()=>dispatch(unlike({postId:val?._id}))} />:
             <AiOutlineLike onClick={()=>dispatch(like({postId:val?._id}))} />
             
             } 
@@ -72,6 +73,7 @@ function Posts({ val, res }) {
                     <img src={com?.postedBy?.profilePic} className='img-fluid' alt='img'/>
                     <div className='comment_main' >
                       <div className='comment_profile'>
+
                         <h4 className='m-0'>{com?.postedBy?.name}</h4>
                         <p className='m-0'>{com?.date}</p>
                       </div>

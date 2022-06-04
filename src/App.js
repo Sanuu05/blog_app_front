@@ -41,7 +41,8 @@ function App() {
       const channel = pusher.subscribe('messages');
       channel.bind('updated', function (data) {
           // setsentmsg(JSON.stringify(data))
-          setupdate(JSON.stringify(data))
+          console.log('updatecc',data)
+          setupdate((data))
           // alert('connn')
 
 
@@ -50,7 +51,7 @@ function App() {
       const channeln = pusher.subscribe('username');
       channeln.bind('posted', function (data) {
           // setsentmsg(JSON.stringify(data))
-          setupdate(JSON.stringify(data))
+          setupdate((data))
           // alert('connn')
 
 
@@ -59,7 +60,7 @@ function App() {
       const channeluser = pusher.subscribe('usernames');
       channeluser.bind('userposted', function (data) {
           // setsentmsg(JSON.stringify(data))
-          setupdateProfile(JSON.stringify(data))
+          setupdateProfile((data))
           // alert('connn')
 
 
@@ -68,7 +69,7 @@ function App() {
       const channelnew = pusher.subscribe('usermessages');
       channelnew.bind('userupdated', function (data) {
           // setsentmsg(JSON.stringify(data))
-          setupdateProfile(JSON.stringify(data))
+          setupdateProfile((data))
           // alert('connn')
 
 
@@ -76,7 +77,7 @@ function App() {
       });
 
   }, [])
-
+console.log('update',update)
   return (
     <div>
       {/* {

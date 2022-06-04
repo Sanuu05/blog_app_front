@@ -38,7 +38,7 @@ function Login() {
     useEffect(() => {
         if (signin) {
             toast.success('Registration Sucessfully')
-            setlogin(false)
+            setlogin(true)
         }
         if (resetres) {
             toast.success('Reset link has been send to your email id')

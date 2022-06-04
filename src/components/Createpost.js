@@ -69,7 +69,7 @@ function Createpost({res}) {
             <div className='create_post_card'>
               <img src={user?.profilePic} className='img-fluid' alt='img'  />
               <div className='create_post_card_input'>
-                <textarea placeholder='Sahre your story' value={postdata} maxLength={180} onChange={(e) => setpostdata(e.target.value)} />
+                <textarea placeholder='Share your story' value={postdata} maxLength={280} onChange={(e) => setpostdata(e.target.value)} />
                 <div className='create_post_card_bottom'>
                   <label className='btn1' htmlFor='profilePicd'><BsImageFill/> Image</label>
                   <input type='file' id='profilePicd' onChange={choosepic}/>
