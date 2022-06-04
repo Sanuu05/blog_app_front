@@ -14,7 +14,6 @@ function Useraccount({updateProfile}) {
     const userdarta = useSelector(state => state.getuser.user)
     const user = useSelector(state => state.user.user)
     const [heading, setheading] = useState()
-    const [modaldata, setmodaldata] = useState([])
     const [follower,setfollower] =useState(false)
     useEffect(() => {
         dispatch(getUser(id))
@@ -23,8 +22,7 @@ function Useraccount({updateProfile}) {
     }, [id,dispatch,updateProfile])
 
     const myposts = useSelector(state => state.getposts.peruser)
-    console.log('userdata', userdarta?.followers)
-    console.log('userdata11', modaldata)
+   
 
 
 
