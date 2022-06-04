@@ -15,9 +15,11 @@ function Useraccount({updateProfile}) {
     const user = useSelector(state => state.user.user)
     const [heading, setheading] = useState()
     const [modaldata, setmodaldata] = useState([])
+    const [follower,setfollower] =useState(false)
     useEffect(() => {
         dispatch(getUser(id))
         dispatch(GetPostByUser(id))
+        
     }, [id,dispatch,updateProfile])
 
     const myposts = useSelector(state => state.getposts.peruser)
@@ -50,7 +52,7 @@ function Useraccount({updateProfile}) {
 
                                     </div>
                                     <div onClick={() => {
-                                        setmodaldata(userdarta?.followers)
+                                        setfollower(true)
                                         setShow(true)
                                         setheading('Followers')
                                     }}>
@@ -59,7 +61,7 @@ function Useraccount({updateProfile}) {
 
                                     </div>
                                     <div onClick={() => {
-                                        setmodaldata(userdarta?.following)
+                                         setfollower(false)
                                         setShow(true)
                                         setheading('Following')
                                     }}>
@@ -96,9 +98,9 @@ function Useraccount({updateProfile}) {
                     <Modal.Title>{heading}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {
-                        modaldata?.map((val, index) => {
-                            if(val._id!==user._id){
+                    {follower?
+                        userdarta.followers?.map((val, index) => {
+                            
                             return <div className='modal_list'>
                                 <NavLink to={`/user/${val?.email}`} style={{ color: 'black', textDecoration: 'none' }} onClick={() => setShow(false)}>
                                     <div className='modal_list_main'>
@@ -114,18 +116,48 @@ function Useraccount({updateProfile}) {
 
                                     </div>
                                 </NavLink>
+                                
                                
-                                {
+                                { val?._id===user?._id?null:
                                     val?.followers?.includes(user?._id) ? <button onClick={() => dispatch(unfollowUser({ followId: val?._id }))}>Following</button> : <button onClick={() => dispatch(followUser({ followId: val?._id }))}>Follow</button>
                                 }
 
 
 
                             </div>
-                            }
+                            
+
+                        }): userdarta.following?.map((val, index) => {
+                            
+                            return <div className='modal_list'>
+                                <NavLink to={`/user/${val?.email}`} style={{ color: 'black', textDecoration: 'none' }} onClick={() => setShow(false)}>
+                                    <div className='modal_list_main'>
+                                        <div>
+                                            <img src={val?.profilePic} className='img-fluid' alt='profile'/>
+                                        </div>
+                                        <div className='modal_list_right'>
+                                            <h4 className='m-0'>{val?.name}</h4>
+                                            <p className='m-0'>{val?.followers?.length} Followers</p>
+
+                                        </div>
+
+
+                                    </div>
+                                </NavLink>
+                                
+                               
+                                { val?._id===user?._id?null:
+                                    val?.followers?.includes(user?._id) ? <button onClick={() => dispatch(unfollowUser({ followId: val?._id }))}>Following</button> : <button onClick={() => dispatch(followUser({ followId: val?._id }))}>Follow</button>
+                                }
+
+
+
+                            </div>
+                            
 
                         })
                     }
+                
                 </Modal.Body>
                 <Modal.Footer>
                 </Modal.Footer>

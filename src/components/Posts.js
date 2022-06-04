@@ -7,6 +7,7 @@ import { Comment, like,unlike } from '../action/main'
 import { useEffect } from 'react'
 import { AiFillLike,AiOutlineLike } from 'react-icons/ai'
 import { MdOutlineModeComment, MdModeComment } from 'react-icons/md'
+import { NavLink } from 'react-router-dom'
 function Posts({ val, res }) {
   const dispatch = useDispatch()
   const [comment, setcomment] = useState()
@@ -29,7 +30,9 @@ function Posts({ val, res }) {
         </div>
         <div className='post_card_profile'>
           <img src={val?.postedBy?.profilePic} className='img-fluid' alt='img' />
+          <NavLink style={{color:'black',textDecoration:'none'}} to={`/user/${val?.postedBy?.email}`} >
           <h4 className='m-0'>{val?.postedBy?.name}</h4>
+          </NavLink>
           <p className='m-0'>{val?.date}</p>
         </div>
         <div className='post_card_text'>
