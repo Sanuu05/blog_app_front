@@ -419,6 +419,9 @@ align-items: baseline;
   padding: 10px;
   border-bottom: 1px solid grey;
 }
+.post_card_text p ,.post_card_comment p{
+  font-size: 13px;
+}
 
 .post_card_comment {
   margin-top: 25px;
