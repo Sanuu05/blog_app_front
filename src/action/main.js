@@ -1,6 +1,7 @@
 import Axios from 'axios'
 import { USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_SUCESS, REGISTER_SUCCESS,GET_ITEMS_USER, REGISTER_FAIL,POSTED, UPDATED, GET_USER,GET_ITEMS, GET_MY_ITEMS, GET_FOLLOW_ITEMS, GET_ALL_USER, RESET} from './types'
-const port = 'http://localhost:8080/main'
+// const port = 'http://localhost:8080/main'
+const port ='https://webpblog.herokuapp.com/main'
 
 
 
