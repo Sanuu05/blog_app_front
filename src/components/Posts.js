@@ -19,7 +19,7 @@ function Posts({ val, res }) {
   }, [res])
   const user = useSelector(state => state.user.user)
   return (
-    <Col sm={{ span: 12, offset: 0 }} md={{ span: 8, offset: 2 }} xl={{ span: 8, offset: 2 }} className="my-3">
+    <Col sm={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }} xl={{ span: 8, offset: 2 }} className="my-3">
       <div className='post_card'>
         <div className='post_card_img'>
           {

@@ -16,6 +16,7 @@ function Navbar() {
     const [searchval,setsearchval] =useState()
 
     const alluser = useSelector(state => state?.getuser?.alluser)
+    const user = useSelector(state => state.user.user)
     const search = (e) => {
         setsearchdata(e.target.value)
         if(e.target.value){
@@ -129,6 +130,7 @@ function Navbar() {
                         <div className='search_data'>
                             {
                                 searchdata?.map((val, i) => {
+                                    if(val?._id!==user?._id){
                                     return <div className='modal_list'>
                                         <NavLink to={`/user/${val?.email}`} onClick={()=>{
                                             setsearchdata([])
@@ -140,7 +142,7 @@ function Navbar() {
                                     </div>
                                     <div className='modal_list_right'>
                                         <h4 className='m-0'>{val?.name}</h4>
-                                        <p className='m-0'>{val?.followers?.length} Followers</p>
+                                        <p className='m-0' style={{color:'grey'}}>{val?.email}</p>
     
                                     </div>
                                     
@@ -152,6 +154,7 @@ function Navbar() {
                                   
     
                                 </div>
+                                    }
                                 })
                             }
 
@@ -165,7 +168,8 @@ function Navbar() {
                         <div className="snav">
                             <ul>
                                 <li className="homee active navitem"><NavLink to="/">Home</NavLink></li>
-                                <li className="services navitem"><NavLink to="/Myaccount">My Account</NavLink></li>
+                                <li className="services navitem"><NavLink to="/allposts">ALL-POSTS</NavLink></li>
+                                <li className="services navitem"><NavLink to="/Myaccount">My-Account</NavLink></li>
                                 <li className="skill navitem"><a onClick={() => dispatch(Logout())}>Logout</a></li>
 
 

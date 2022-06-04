@@ -98,6 +98,7 @@ function Useraccount({updateProfile}) {
                 <Modal.Body>
                     {
                         modaldata?.map((val, index) => {
+                            if(val._id!==user._id){
                             return <div className='modal_list'>
                                 <NavLink to={`/user/${val?.email}`} style={{ color: 'black', textDecoration: 'none' }} onClick={() => setShow(false)}>
                                     <div className='modal_list_main'>
@@ -121,6 +122,7 @@ function Useraccount({updateProfile}) {
 
 
                             </div>
+                            }
 
                         })
                     }

@@ -77,8 +77,8 @@
   background-color: whitesmoke;
   transition: 0.8s all;
   color: black !important;
-  font-family: 'Architects Daughter', cursive;
-  font-family: 'Krona One', sans-serif;
+  /* font-family: 'Architects Daughter', cursive;
+  font-family: 'Krona One', sans-serif; */
 }
 
 .left_nav a {
@@ -128,7 +128,7 @@
 .nav ul li a {
   color: black;
   transition: 0.8s all;
-  font-family: 'Architects Daughter', cursive;
+  /* font-family: 'Architects Daughter', cursive; */
   font-weight: bold;
   padding-top: 5px;
 }
@@ -195,14 +195,14 @@ nav ul .active a:before {
 }
 
 .navbarr {
-  width: 80%;
+  width: 100%;
 
 
   display: flex;
   justify-content: space-between;
   margin: auto;
   align-items: center;
-  padding: 5px 0;
+  padding: 5px ;
 
 }
 

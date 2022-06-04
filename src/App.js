@@ -11,6 +11,7 @@ import Myaccount from "./components/Myaccount";
 import Useraccount from "./components/Useraccount";
 import Login from "./components/Login";
 import Pusher from 'pusher-js'
+import Allposts from "./components/Allposts";
 function App() {
   const dispatch = useDispatch()
   const usertoken = useSelector(state => state.user.token)
@@ -87,6 +88,10 @@ function App() {
       <Route path='/' element={<>
         <Navbar />
         <Home update={update}  />
+      </>} />
+      <Route path='/allposts' element={<>
+        <Navbar />
+        <Allposts update={update}  />
       </>} />
       <Route path='/myaccount' element={<>
         <Navbar />
