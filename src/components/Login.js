@@ -13,24 +13,23 @@ function Login() {
     const [data, setdata] = useState({
         name: '', email: '', password: '', cpassword: ''
     })
-    const dispatch = useDispatch()
-    const usertoken = useSelector(state => state.user.token)
     const [resets, setreset] = useState(false)
+    const [login, setlogin] = useState(true)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const usertoken = useSelector(state => state.user.token)
     const error = useSelector(state => state.user.error)
     const signin = useSelector(state => state.user.signin)
     const resetres = useSelector(state => state.response.reset)
-    console.log('reset res',resetres)
-    const navigate = useNavigate()
-    const [login, setlogin] = useState(true)
+
+  
     const loginpost = (e) => {
         e.preventDefault()
         dispatch(userLogin(data))
-
     }
     useEffect(() => {
         if (usertoken) {
             navigate('/')
-
         }
 
     }, [usertoken,navigate])
@@ -49,14 +48,10 @@ function Login() {
     const signup = (e) => {
         e.preventDefault()
         dispatch(userSignup(data))
-
-        // alert('hello')
-
     }
     const resetfun = (e) => {
         e.preventDefault()
         dispatch(reset({ email: data.email }))
-
     }
     useEffect(() => {
         if (error) {

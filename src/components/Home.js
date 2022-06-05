@@ -7,13 +7,14 @@ import Createpost from './Createpost'
 import Posts from './Posts'
 function Home({update}) {
   const dispatch = useDispatch()
+
+  const followposts = useSelector(state => state.getposts.follow)
+
   useEffect(() => {
    
     dispatch(getfollowData())
     
   }, [update,dispatch])
-
-  const followposts = useSelector(state => state.getposts.follow)
   
   
   return (

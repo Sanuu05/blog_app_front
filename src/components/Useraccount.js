@@ -7,14 +7,16 @@ import { NavLink, useParams } from 'react-router-dom'
 import { followUser, getUser, unfollowUser, GetPostByUser } from '../action/main'
 import Posts from './Posts'
 function Useraccount({updateProfile,update}) {
+
+    const [heading, setheading] = useState()
+    const [follower,setfollower] =useState(false)
+    const [show, setShow] = useState(false);
     const { id } = useParams()
     const dispatch = useDispatch()
-    const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const userdarta = useSelector(state => state.getuser.user)
     const user = useSelector(state => state.user.user)
-    const [heading, setheading] = useState()
-    const [follower,setfollower] =useState(false)
+   
     useEffect(() => {
         dispatch(getUser(id))
         dispatch(GetPostByUser(id))

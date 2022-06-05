@@ -11,13 +11,13 @@ import {AiFillEdit} from 'react-icons/ai'
 import { Updatedp } from '../action/main'
 
 function Myaccount({update,updateProfile}) {
-    const userdarta = useSelector(state => state.user.user)
-    const dispatch = useDispatch()
+ 
     const [heading, setheading] = useState()
-    const [modaldata, setmodaldata] = useState([])
     const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
     const [follower,setfollower] =useState(false)
+    const dispatch = useDispatch()
+    const handleClose = () => setShow(false);
+    const userdarta = useSelector(state => state.user.user)
 
     useEffect(() => {
         dispatch(getmytData())
@@ -40,12 +40,10 @@ function Myaccount({update,updateProfile}) {
               dispatch(Updatedp({ pic: data.url }))
             }).catch(err => console.log(err))
     
-        } else {
-        //   dispatch(postData({ body: postdata }))
-        }
+        } 
     
       }
-console.log('user',userdarta)
+
 
 
     return (

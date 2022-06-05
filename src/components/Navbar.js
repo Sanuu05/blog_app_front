@@ -68,13 +68,10 @@ function Navbar() {
             let current = "";
             sections.forEach(section => {
                 const sectop = section.offsetTop;
-                // console.log(sectop)
-                // const secheight = section.clientHeight;
                 if (window.pageYOffset > sectop) {
                     current = section.getAttribute('id')
                 }
             })
-            // console.log("curr", current)
             navli.forEach(li => {
                 li.classList.remove('active');
                 if (li.classList.contains(current)) {
