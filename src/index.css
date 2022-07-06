@@ -13,7 +13,13 @@
 .mtop {
   padding-top: 100px;
 }
-
+.top_part_left{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .signup {
 
   background-color: whitesmoke;
@@ -259,7 +265,7 @@ nav ul .active a:before {
 }
 
 #profilePic,
-#profilePicd {
+#profilePicd,#profilePicd1 {
   display: none;
 }
 
@@ -277,7 +283,7 @@ nav ul .active a:before {
 
 .top_part .top_part_right_bottom {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .top_part .top_part_right_bottom div {
@@ -813,6 +819,7 @@ nav ul .active a:before {
 
 
   /* myaccount */
+ 
   .top_part_left img {
     width: 100px;
     height: 100px;
