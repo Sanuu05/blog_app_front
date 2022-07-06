@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {  Logout } from '../action/main';
 import { IoSearch } from 'react-icons/io5'
+import img1 from '../components/images/logo.png'
 
 
 
@@ -113,7 +114,7 @@ function Navbar() {
                     <div className="left_nav">
                         <NavLink to="/">
                        
-                            <h4>BLOGY</h4>
+                            <img src={img1} className='img-fluid' style={{width:70}} />
                         </NavLink>
                     </div>
 
