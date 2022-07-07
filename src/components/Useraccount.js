@@ -37,7 +37,11 @@ function Useraccount({updateProfile,update}) {
                         <div className='top_part'>
 
                             <div className='top_part_left'>
+                                <div>
                                 <img src={userdarta?.profilePic} className='img-fluid' alt='profile'/>
+                                </div>
+                                <p>{userdarta?.bio}</p>
+                                
 
                             </div>
                             <div className='top_part_right'>
